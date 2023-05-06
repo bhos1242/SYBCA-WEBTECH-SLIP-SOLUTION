@@ -1,0 +1,63 @@
+q1
+============================================
+<?php
+function Palindrome($number){
+	$temp = $number;
+	$new = 0;
+	while (floor($temp)) {
+		$d = $temp % 10;
+		$new = $new * 10 + $d;
+		$temp = $temp/10;
+	}
+	if ($new == $number){
+		return 1;
+	}
+	else{
+		return 0;
+	}
+}
+
+
+$original = 1441;
+if (Palindrome($original)){
+	echo "Palindrome";
+}
+else {
+echo "Not a Palindrome";
+}
+==============================
+q2
+==================================================
+<?php
+// Get the owner name from the user
+$owner_name = $_POST["owner_name"];
+
+// Connect to the database
+$host = "localhost";
+$dbname = "mydb";
+$username = "postgres";
+$password = "mypassword";
+$conn = new PDO("pgsql:host=$host;dbname=$dbname", $username, $password);
+
+// Construct the SQL query
+$query = "SELECT Property.* FROM Property INNER JOIN Owner ON Property.pno = Owner.pno WHERE Owner.oname = ?";
+$stmt = $conn->prepare($query);
+$stmt->execute([$owner_name]);
+$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Display the results as an HTML table
+if (count($result) > 0) {
+    echo "<table>";
+    echo "<tr><th>PNO</th><th>Description</th><th>Area</th></tr>";
+    foreach ($result as $row) {
+        echo "<tr>";
+        echo "<td>" . $row["pno"] . "</td>";
+        echo "<td>" . $row["description"] . "</td>";
+        echo "<td>" . $row["area"] . "</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
+} else {
+    echo "No properties found for owner '$owner_name'";
+}
+?>

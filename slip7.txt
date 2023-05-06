@@ -1,0 +1,117 @@
+q1
+===================================
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Reverse String Form</title>
+</head>
+<body>
+	<form method="POST">
+		<label for="input-string">Enter a string:</label>
+		<input type="text" id="input-string" name="input-string" required>
+		<button type="submit">Reverse</button>
+	</form>
+
+	<?php
+	if (isset($_POST['input-string'])) {
+		$input_string = $_POST['input-string'];
+
+		echo "<p>Reversed string: " . reverse_string($input_string) . "</p>";
+	}
+
+	function reverse_string($str) {
+		$length = strlen($str);
+		$reversed_str = "";
+		for ($i = $length - 1; $i >= 0; $i--) {
+			$reversed_str .= $str[$i];
+		}
+		return $reversed_str;
+	}
+	?>
+</body>
+</html>
+========================================================================
+or
+=========================================================================
+<?php
+class Employee 
+{
+    private $id;
+    private $name;
+    private $department;
+    private $salary;
+
+    public function __construct($id, $name, $department, $salary)
+    {
+        $this->id = $id;
+        $this->name = $name;
+        $this->department = $department;
+        $this->salary = $salary;
+    }
+
+    public function getSalary() 
+    {
+        return $this->salary;
+    }
+
+    public function __toString() 
+    {
+        return "Employee ID: " . $this->id . "\n" .
+               "Name: " . $this->name . "\n" .
+               "Department: " . $this->department . "\n" .
+               "Salary: $" . $this->salary . "\n";
+    }
+}
+
+class Manager extends Employee 
+{
+    private $bonus;
+
+    public function __construct($id, $name, $department, $salary, $bonus) 
+    {
+        parent::__construct($id, $name, $department, $salary);
+        $this->bonus = $bonus;
+    }
+
+    public function getTotalSalary()
+    {
+        return $this->getSalary() + $this->bonus;
+    }
+
+    public function __toString()
+    {
+        return parent::__toString() .
+               "Bonus: $" . $this->bonus . "\n" .
+               "Total Salary: $" . $this->getTotalSalary() . "\n";
+    }
+}
+
+// create 6 Manager objects
+$managers = array(
+    new Manager(1, "John Doe", "Marketing", 50000, 10000),
+    new Manager(2, "Jane Smith", "Human Resources", 60000, 15000),
+    new Manager(3, "Bob Johnson", "Finance", 70000, 20000),
+    new Manager(4, "Mary Adams", "Sales", 55000, 12000),
+    new Manager(5, "Tom Davis", "Information Technology", 80000, 25000),
+    new Manager(6, "Lisa Lee", "Operations", 65000, 18000)
+);
+
+// find manager with maximum total salary
+$max_total_salary = -1;
+$max_total_salary_manager = null;
+
+foreach ($managers as $manager) 
+{            
+    $total_salary = $manager->getTotalSalary();
+
+    if ($total_salary > $max_total_salary) 
+    {
+        $max_total_salary = $total_salary;
+        $max_total_salary_manager = $manager;
+    }
+}
+
+// display details of manager with maximum total salary
+echo "Manager with Maximum Total Salary:\n";
+echo $max_total_salary_manager;
+?>

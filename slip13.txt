@@ -1,0 +1,77 @@
+q1
+===================================================
+<?php
+$time_table = array(
+    array("Time", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"),
+    array("9:00-10:00", "Maths", "English", "Science", "Social Studies", "Computer Science"),
+    array("10:00-11:00", "Science", "Maths", "English", "Social Studies", "Computer Science"),
+    array("11:00-12:00", "English", "Science", "Maths", "Computer Science", "Social Studies"),
+    array("12:00-1:00", "Lunch", "Lunch", "Lunch", "Lunch", "Lunch"),
+    array("1:00-2:00", "Social Studies", "Computer Science", "Science", "Maths", "English"),
+    array("2:00-3:00", "Computer Science", "Social Studies", "English", "Science", "Maths")
+);
+
+echo "<table border='1'>";
+foreach ($time_table as $row) {
+    echo "<tr>";
+    foreach ($row as $cell) {
+        echo "<td>" . $cell . "</td>";
+    }
+    echo "</tr>";
+}
+echo "</table>";
+?>
+======================================================
+q2
+==============================
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $item_code = explode(",", $_POST["item_code"]);
+    $item_name = explode(",", $_POST["item_name"]);
+    $units_sold = explode(",", $_POST["units_sold"]);
+    $rate = explode(",", $_POST["rate"]);
+
+    $total_cost = array();
+    for ($i = 0; $i < 5; $i++) {
+        $total_cost[$i] = $units_sold[$i] * $rate[$i];
+    }
+
+    echo "<table border='1'>";
+    echo "<tr><th>Item Code</th><th>Item Name</th><th>Units Sold</th><th>Rate</th><th>Total Cost</th></tr>";
+    for ($i = 0; $i < 5; $i++) {
+        echo "<tr><td>" . $item_code[$i] . "</td><td>" . $item_name[$i] . "</td><td>" . $units_sold[$i] . "</td><td>" . $rate[$i] . "</td><td>" . $total_cost[$i] . "</td></tr>";
+    }
+    echo "</table>";
+}
+?>
+
+<form method="POST">
+    Item Code: <input type="text" name="item_code"><br>
+    Item Name: <input type="text" name="item_name"><br>
+    Units Sold: <input type="text" name="units_sold"><br>
+    Rate: <input type="text" name="rate"><br>
+    <br>
+    Item Code: <input type="text" name="item_code"><br>
+    Item Name: <input type="text" name="item_name"><br>
+    Units Sold: <input type="text" name="units_sold"><br>
+    Rate: <input type="text" name="rate"><br>
+    <br>
+    Item Code: <input type="text" name="item_code"><br>
+    Item Name: <input type="text" name="item_name"><br>
+    Units Sold: <input type="text" name="units_sold"><br>
+    Rate: <input type="text" name="rate"><br>
+    <br>
+    Item Code: <input type="text" name="item_code"><br>
+    Item Name: <input type="text" name="item_name"><br>
+    Units Sold: <input type="text" name="units_sold"><br>
+    Rate: <input type="text" name="rate"><br>
+    <br>
+    Item Code: <input type="text" name="item_code"><br>
+    Item Name: <input type="text" name="item_name"><br>
+    Units Sold: <input type="text" name="units_sold"><br>
+    Rate: <input type="text" name="rate"><br>
+    <br>
+    <input type="submit" value="Submit">
+</form>

@@ -1,0 +1,51 @@
+q1
+========================================================
+<php
+$num=153
+$total=0;
+$x=$num;
+while( $x!=0)
+{
+    $rem=$x %10;
+    $total=$total +$rem *rem *rem;
+    $x=$x/10;
+}
+if( $num == $total)
+{
+    echo " yes it is armstron number";
+}
+else
+{
+    echo " no its not";
+}
+?>
+=============================================================
+q2
+============================================================
+<?xml version ='1.0' encoding='UTF-8'?>
+<college>
+<course>
+
+<course_name> Arts</course_name>
+<level>UG</level>
+<intake_capacity>90%</intake_capacity>
+</course>
+
+<course>
+<course_name>Science</course_name>
+<level>PG</level>
+<intake_capacity>100%</intake_capacity>
+</course>
+
+<course>
+<course_name>COMMERCE</course_name>
+<level>PG</level>
+<intake_capacity>60%</intake_capacity>
+</course>
+
+<course>
+<course_name>Managment</course_name>
+<level>PG</level>
+<intake_capacity>80%</intake_capacity>
+</course>
+</college>

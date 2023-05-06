@@ -1,0 +1,40 @@
+q1
+============================================================================
+<?php 
+$lines = file('http://google.com/');
+foreach ($lines as $line_num => $line) {
+echo "Line #<b>{$line_num}</b> : " . htmlspecialchars($line) . "<br />\n";
+}
+?>
+============================================================================
+or
+============================================================================
+<?xml vesrsion="1.0"encoding="utf-8"?>
+<cricketteam>
+<cricket>
+<player>abc<player>
+<runs>100</runs>
+<wicket>50/<wicket>
+</cricket>
+<cricket>
+<player>dhoni</player>
+<runs>30</runs>
+<wicket>20</wicket>
+</cricket>
+<cricket>
+<player>rohit</player>
+<runs>500</runs>
+<wicket>10</wicket>
+</cricket>
+<cricket>
+<player>ajit</player>
+<runs>50</runs>
+<wicket>20</wicket>
+</cricket>
+<cricket>
+<player>rohit</player>
+<runs>5000</runs>
+<wicket>50</wicket>
+</cricket>
+</cricketteam>
+

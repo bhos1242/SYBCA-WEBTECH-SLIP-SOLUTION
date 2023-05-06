@@ -1,0 +1,93 @@
+
+10
+==============================================================
+<?php
+getinfo();
+?>
+=================================================================
+20
+==================================================================
+
+
+<html>
+<body>
+<form method="GET" action="vowels.php">
+Enter the String : <input type="text" name="inputStr"><br>
+<input type="submit" name="Submit">
+</form>
+
+<?php
+ $cnt=0;
+$string = $_GET["inputStr"];
+ $vowels = array("a"=>0,"e"=>0,"i"=>0,"o"=>0,"u"=>0);
+ for($i=0; $i<strlen($string); $i++) {
+if(strtolower($string[$i]) == 'a') {
+++$cnt;
+++$vowels['a'];
+}
+if(strtolower($string[$i]) == 'e') {
+++$cnt;
+++$vowels['e'];
+}
+if(strtolower($string[$i]) == 'i') {
+++$cnt;
+++$vowels['i'];
+}
+if(strtolower($string[$i]) == 'o') {
+++$cnt;
+++$vowels['o'];
+}
+if(strtolower($string[$i]) == 'u') {
+++$cnt;
+++$vowels['u'];
+}
+}
+ echo "<h1>Total number of vowels found : ".$cnt."<h1>";
+echo "Occurence of 'a' : ".$vowels['a']."<br>";
+echo "Occurence of 'e' : ".$vowels['e']."<br>";
+echo "Occurence of 'i' : ".$vowels['i']."<br>";
+echo "Occurence of 'o' : ".$vowels['o']."<br>";
+echo "Occurence of 'u' : ".$vowels['u']."<br>";
+?>
+</body>
+</html>
+=========================================================================================
+or
+==========================================================================
+<?xml version="1.0" encoding="utf-8"?>
+<college>
+<subject>
+<subject_code>BCA 101</subject_code>
+<subject_name>web tech</subject_name>
+</subject>
+<subject>
+<subject_code>BCA 102</subject_code>
+<subject_name>SE</subject_name>
+</subject>
+  <subject>
+<subject_code>BCA 103</subject_code>
+<subject_name>CN</subject_name>
+</subject>
+  <subject>
+<subject_code>BCA 104</subject_code>
+<subject_name>CPP</subject_name>
+</subject>
+  <subject>
+<subject_code>BCA 105</subject_code>
+<subject_name>PY</subject_name>
+</subject>
+</college>
+
+<?php
+$xml_data=simplexml_load_file("/var/www/html/SHUBHAM_K/A5SetcQ1.xml")
+or die("error.object creation faliure");
+foreach($xml_data->children() as $data)
+{
+   $sub=$data->subject_code;
+   $name=$data->subject_name;
+   if($sub="BCA 101")
+   {
+    echo"<br>".$sub(1);
+   }
+}
+?>

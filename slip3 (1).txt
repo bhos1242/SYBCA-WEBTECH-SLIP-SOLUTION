@@ -1,0 +1,106 @@
+q1
+
+<?php
+ $time_table = array(
+    array("time","monday","tuesday","wednesday","thursday","friday","saturday"),
+    array("9:00-10.00","maths","science","english","marathi","php","social science","srs"),
+    array("11.00-12.00","english","marathi","science","php","srs","os"),
+    array("12.00-1.00","srs","english","marathi","os","evs","maths"),
+    array("1.00-2.00","evs","maths","science","evs","marathi","english")
+ );
+ echo "<table border ='1'>";
+ foreach ($time_table as $row)
+{
+    echo"<tr>";
+    foreach ($row as $cell)
+    {
+        echo"<td>".$cell."</td>";
+    }
+    echo"</tr>";
+
+ }
+ echo"</table>";
+?>
+
+====================================================================
+q2
+<html>
+    <form method="GET" action="shapeinterface.php">
+    <input type="radio"value=1 name="option">traingle<br>
+    <input type="radio"value=2 name="option">square<br>
+    <input type="radio" value=3 name="option">circle<br>
+    <input type ="submit">
+   </form>
+</html>
+<?php
+$choice=$_GET['option'];
+class shape
+{
+    var $val1,$val2;
+    function shape($a,$b)
+    {
+        $this->val1=$a;
+        $this->val2=$b;
+    }
+    function get()
+    {
+        return $this->val1*$this->val2;
+
+    }
+}
+class triangle extends shape
+{
+    var $area_tr;
+    function triangle($a,$b)
+    {
+        parent::shape ($a,$b);
+        $this->area_tr=0.5*parent::get();
+    }
+    function display()
+    {
+    echo "<br> AREA OF TRIANGLE<b>".$this->area_tr."</b>";
+    }
+    
+
+
+}
+class square extends shape
+{
+    var $area_sqr;
+    function square($a)
+    {
+        parent::Shape($a,$a);
+        $this->area_sqr=parent::get();
+    }
+    function display()
+    {
+        echo"<br>area of square:<br>".$this->area_sqr."</br>";
+    }
+}
+class circle extends Shape
+ {
+  var $area_cir;
+  function circle($a)
+  {
+   parent::Shape($a,$a);
+   $this->area_cir=3.14*parent::get();
+  }
+  function display()
+  {
+   echo "<br>AREA OF CIRCLE:<b>".$this->area_cir."</b>";
+  }
+ }
+ switch($choice)
+ {
+  case 1: $ob=new triangle(3,4);
+   $ob->display();
+   break;
+  case 2: $ob=new square(3);
+                        $ob->display();
+                        break;
+  case 3: $ob=new circle(6);
+   $ob->display();
+   break;
+ }
+ 
+?>

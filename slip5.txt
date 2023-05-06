@@ -1,0 +1,66 @@
+
+q1
+==============================================
+<?php
+$sum=153;
+$total=0;
+$x=$num;
+while($x=!0)
+{
+$rem=$x%10;
+$total=$total+$rem*$rem*$rem;
+$x=$x/10;
+}
+if($num=$total)
+{
+echo"yes it is armstrong no";
+}
+else
+{
+echo" it is not armstrong no";
+}
+?>
+==================================================
+q2
+
+
+<html>
+    <body>
+        <form method=get>
+            <input type=radio value1 name=chk>display elemets of array along with the key</br>
+            <input type=radio value2 name=chk>display size</br>
+            <!--<input type=text name=in></br>-->
+            <input type=radio value3 name=chk>array_flip</br>
+            <input tyep=radio value4 name=chl>shuffle<br>
+            <input type=submit value=submit><br>
+        </form>
+        <?php
+        $ch=$_GET['in'];
+        $ch=$_GET['chk'];
+        $a=array("a"=>1,"b"=>2,"c"=>3,"d"=>4);
+        if($ch==1)
+        {
+            print_r($a);
+            echo"<br>";
+            foreach($a as $k=>$val){
+                echo"$k=>$val<br>";
+        }
+    }
+    elseif($ch==2)
+    {
+        echo count($a);
+
+    }
+    elseif($ch==3)
+    {
+        echo"reverse  of array is <br>";
+        print_r(array_flip($a));
+    }
+    elseif($ch==4)
+    {
+        echo"random array is".shuffle($a);
+        print_r($b);
+    }
+    ?>
+    </body>
+</html>

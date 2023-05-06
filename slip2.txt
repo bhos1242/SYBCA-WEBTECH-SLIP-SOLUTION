@@ -1,0 +1,66 @@
+q1
+===========================================
+<html>
+<h2>student</h2>
+<?php
+class student
+{
+    public $name= 'ali';
+	public $rno=55;
+}
+$a = new student();
+echo $a->name;
+echo "<br>";
+echo $a->rno;
+echo "<br>";
+$b = new student ();
+echo $b->name;
+echo "<br>";
+echo $b->rno;
+?>
+</html>
+
+
+
+==========================================
+q2
+=========================================
+<html>
+    <body>
+        <form action="arithmatic.php" method="GET">
+            enter first number:<input type=text name=num1 <br>
+            enter second number:<input type=text name=num2<br>
+          Operation:<br>
+            <input type=radio name=c value1>addiotion.<br>
+            <input type=radio name=c value2>substractin.<br>
+            <input type=radio name=c value3>multiplication.<br>
+            <input type=radio name=c value4>division.<br>
+            <input type=submit value=ok>
+            <input type=reset value=clear>
+        </form>
+        <?php
+        $n1=$_GET['num1'];
+        $n2=$_GET['num2'];
+        $n3=$_GET['c'];
+        if($op==1)
+        {
+            $c = $n1 + $n2;
+            echo"addition is:$c";
+        }
+        else if($op==2){
+            $c =$n1-$n2;
+            echo"sustraction is:$c";
+        }
+        else if($op==3)
+        {
+            $c =$n1*$n2;
+            echo "multilpication is:$c";
+        }
+        else if($op==4)
+        {
+            $c =$n1 / $n2;
+            echo "division is:$c";
+        }
+        ?>
+    </body>
+</html>
