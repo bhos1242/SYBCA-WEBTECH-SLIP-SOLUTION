@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cricket>
+  <player>
+    <name>Abe</name>
+    <runs>120</runs>
+    <wickets>25</wickets>
+  </player>
+  <player>
+    <name>Bob</name>
+    <runs>85</runs>
+    <wickets>18</wickets>
+  </player>
+  <player>
+    <name>Charlie</name>
+    <runs>205</runs>
+    <wickets>10</wickets>
+  </player>
+  <player>
+    <name>David</name>
+    <runs>50</runs>
+    <wickets>32</wickets>
+  </player>
+  <player>
+    <name>Eve</name>
+    <runs>150</runs>
+    <wickets>12</wickets>
+  </player>
+</cricket>

@@ -1,0 +1,46 @@
+<html>
+<body>
+    <form method=get>
+        <input type=radio value=1 name=chk >insert element in stack</br>
+        <input type=radio value=2 name=chk >Delete an element from stack</br>
+        <!--<input type=text name=in></br>-->
+        <input type=radio value=3 name=chk >Insert an Element in queue</br>
+        <input type=radio value=4 name=chk >delete an element from queue</br>
+        
+        <input type=Submit value=SUBMIT></br>
+    </form>
+    <?php
+     $ch=$_GET['chk'];
+     $a=array(10,20,30,40,50);
+     print_r($a);
+    if($ch==1)
+    {
+        
+       echo"Push element into array";
+       array_push($a,60);
+       print_r($a);
+    }
+
+    elseif($ch==2)
+    {
+        echo"Pop element from array";
+        array_pop($a);
+        print_r($a);
+     }
+    
+    elseif($ch==3)
+    {   echo"Insert  an array element from the queue is";
+        array_unshift($a,70);
+        print_r($a);
+        
+    }
+    elseif($ch==4)
+    {
+        echo"Delete an array element in the queue is";
+        array_shift($a);
+        print_r($a);
+    }
+
+?>
+</body>
+</html>
